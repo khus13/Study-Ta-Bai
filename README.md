@@ -3,7 +3,7 @@
 Study Ta Bai is an AI-supported, gamified supplemental learning and teaching platform.
 
 - Create & Customize: Build interactive quizzes based on modules or lessons uploaded by the user.
-- Wayground AI: Use an AI assistant to generate curriculum-aligned resources, differentiate materials, translate languages, or adjust reading levels in minutes.
+- Study Ta Bai: Use an AI assistant to generate curriculum-aligned resources, differentiate materials, translate languages, or adjust reading levels in minutes.
 - Run Sessions: Launch live gamified classroom sessions (with leaderboards, memes, and music) or assign activities as self-paced homework.
 - Track Data: Access detailed class- and student-level performance reports tied to academic standards.
 
