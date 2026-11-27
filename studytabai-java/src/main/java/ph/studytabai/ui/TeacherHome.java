@@ -1,10 +1,15 @@
 package ph.studytabai.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
 import ph.studytabai.AppContext;
 import ph.studytabai.model.Teacher;
-
-import javax.swing.*;
-import java.awt.*;
 
 public final class TeacherHome extends JPanel {
     private final SessionsPanel sessions;
@@ -34,11 +39,9 @@ public final class TeacherHome extends JPanel {
         JTabbedPane tabs = new JTabbedPane();
         tabs.addTab("Lessons", new LessonsPanel(ctx, teacher));
         tabs.addTab("Quizzes & Flashcards", new ActivitiesPanel(ctx, teacher));
-        tabs.addTab("Study Ta Bai", new StudyTaBaiPanel(ctx, teacher));
         tabs.addTab("Run a Session", sessions);
         ReportsPanel reports = new ReportsPanel(ctx, teacher);
         tabs.addTab("Reports", reports);
-        tabs.addTab("Standards", new StandardsPanel(ctx));
         tabs.addChangeListener(e -> { if (tabs.getSelectedComponent() == reports) reports.refresh(); });
         for (int i = 0; i < Math.min(9, tabs.getTabCount()); i++) tabs.setMnemonicAt(i, '1' + i);
         add(tabs, BorderLayout.CENTER);

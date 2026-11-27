@@ -1,19 +1,33 @@
 package ph.studytabai.ui;
 
-import ph.studytabai.AppContext;
-import ph.studytabai.model.*;
-import ph.studytabai.net.GameServer;
-import ph.studytabai.service.MusicPlayer;
-import ph.studytabai.session.*;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.function.BooleanSupplier;
+
+import javax.swing.JList;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+
+import ph.studytabai.AppContext;
+import ph.studytabai.model.Document;
+import ph.studytabai.model.Flashcard;
+import ph.studytabai.model.FlashcardSet;
+import ph.studytabai.model.MultipleChoiceQuestion;
+import ph.studytabai.model.Option;
+import ph.studytabai.model.Quiz;
+import ph.studytabai.model.ShortAnswerQuestion;
+import ph.studytabai.model.Teacher;
+import ph.studytabai.net.GameServer;
+import ph.studytabai.service.MusicPlayer;
+import ph.studytabai.session.LiveSession;
+import ph.studytabai.session.SelfPacedSession;
+import ph.studytabai.session.Session;
 
 /** Headless smoke test: builds every screen and drives the student screen against a real server. Run with -Djava.awt.headless=true */
 public class UiSmokeTest {
@@ -69,7 +83,7 @@ public class UiSmokeTest {
         check("teacher home with all tabs builds", built[0]);
         int[] tabs = {0};
         edt(() -> { walk(home, c -> { if (c instanceof JTabbedPane tp) tabs[0] = tp.getTabCount(); }); return null; });
-        check("six teacher tabs present", tabs[0] == 6);
+        check("four teacher tabs present", tabs[0] == 4);
 
         // ----- theme switches -----
         edt(() -> { Theme.set(true, 1.5); Theme.set(false, 1.0); return null; });
